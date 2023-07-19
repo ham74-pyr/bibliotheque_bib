@@ -1,0 +1,26 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+	{{ parent() }}
+	| Accueil
+{% endblock %}
+
+{% block body %}
+
+	{% if app.user %}
+		{% set color = 'success' %}
+	{% else %}
+		{% set color = 'danger' %}
+	{% endif %}
+
+	<h2 class="text-center text-{{color}}">
+		Bonjour
+		{% if app.user %}
+			{{ app.user.prenom }}
+		{% endif %}
+	</h2>
+
+
+
+
+{% endblock %}

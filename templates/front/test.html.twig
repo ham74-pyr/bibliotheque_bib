@@ -1,0 +1,24 @@
+{% extends "base.html.twig" %}{# héritage d'un fichier html.twig #}
+{#
+    Avec l'héritage, on place les divers contenus dans des block
+#}
+{% block body %}
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos, suscip</p>
+{% endblock %}
+
+{% block title %}{{ parent() }} | Test{% endblock %}
+
+{% block h1 %}Test{% endblock %}
+
+{% block stylesheets %}
+    <style>
+        p{
+            color:red
+        }
+    </style>
+{% endblock %}
+{#
+    commentaire 
+    {{ }} : interpolation : variables, fonctions twig
+    {%  %} : commande : for if extends include block ...
+#}

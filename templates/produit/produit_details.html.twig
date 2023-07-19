@@ -1,0 +1,116 @@
+{% extends "base.html.twig" %}
+
+{% block h1 %}{{produit.titre|capitalize}}{% endblock %}
+
+{% block title %}{{ parent() }} | {{produit.titre|capitalize}}{% endblock %}
+
+{% block body %}
+
+
+    <a class="btn btn-dark mb-3" href="{{ path('produit_afficher') }}">Retour</a>
+
+    <table class="table table-striped ">
+    
+        <tr>
+            <th>ID</th>
+            <td>{{ produit.id }}</td>
+        </tr>
+
+        <tr>
+            <th>Titre</th>
+            <td>{{ produit.titre }}</td>
+        </tr>
+
+        <tr>
+            <th>Prix</th>
+            <td>{{ produit.prix }} €</td>
+        </tr>
+
+        <tr>
+            <th>Description</th>
+            <td>
+                {% if produit.description %}
+                    {{produit.description}}
+                {% else %}
+                    <span class="text-danger">N.R</span>
+                {% endif %}
+            </td>
+        </tr>
+
+        <tr>
+            <th>Image</th>
+            <td>
+                {% if produit.image %}
+                    {# <img src="" alt=""> #}
+                {% else %}
+                    <span class="text-danger">N.R</span>
+                {% endif %}
+            </td>
+        </tr>
+
+        <tr>
+            <th>Création</th>
+            <td>{{ produit.createdAt|date('d/m/Y H:i') }}</td>
+        </tr>
+
+        <tr>
+            <th>Modification</th>
+            <td>
+                {% if produit.updatedAt %}
+                    {{ produit.updatedAt|date('d/m/Y H:i') }}
+                {% else %}
+                    <span class="text-danger">Aucune modification</span>
+                {% endif %}
+            </td>
+        </tr>
+
+        <tr>
+            <th>Catégorie</th>
+            <td>{{ produit.categorie.nom }}</td>
+        </tr>
+
+        <tr>
+            <th>Marque</th>
+            <td>{{ produit.marque.nom }}</td>
+        </tr>
+
+        {#
+            on n'affiche un objet mais les propriétés d'un objet
+            Il existe plusieurs "types" de propriétés :
+                - string, exemple : produit.titre, produit.prix ....
+                - relationnelles : en fonction de la relation
+                    - propriétés ayant un objet : objet.objet.propriété
+                            exemple : produit.categorie.nom 
+                    - propriétés ayant un tableau d'objet
+        
+        #}
+
+        <tr>
+            <th>Matière(s)</th>
+            <td>
+                {% for matiere in produit.matieres %}
+                    {{ matiere.nom }}
+                {% endfor %}
+            </td>
+        </tr>
+
+        <tr>
+            <th>Image</th>
+            <td>
+                {% if produit.image %}
+<img src="{{ asset('images/upload/' ~ produit.image )| imagine_filter('rectangle') }}" alt="">
+
+                {% else %}
+                    <span class="text-danger">Aucune image</span>
+                {% endif %}
+            </td>
+        </tr>
+
+
+    
+    </table>
+
+   
+		
+
+{% endblock %}

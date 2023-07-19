@@ -1,0 +1,110 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+	{{ parent() }}
+	| Gestion des produits
+{% endblock %}
+
+{% block h1 %}Gestion des produits ({{ produits|length }})
+{% endblock %}
+
+{% block body %}
+
+	<a class="btn btn-dark" href="{{ path('produit_ajouter') }}">Ajouter</a>
+
+
+	{% for message in app.flashes('success') %}
+		<div class="col-md-6 mx-auto text-center alert alert-success">
+			{{ message }}
+		</div>
+	{% endfor %}
+
+
+	{% if produits %}
+		{# <pre>{{ dump(produits) }}</pre> #}
+		<table class="table text-center mt-3">
+
+			<thead class="bg-dark text-white">
+				<tr>
+					<th>ID</th>
+					<th>Titre</th>
+					<th>Prix (€)</th>
+					<th>Description</th>
+					<th>Catégorie</th>
+					<th>Marque</th>
+					<th>Date de création</th>
+					<th>Détails</th>
+					<th>Modifier</th>
+					<th>Supprimer</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				
+				{% for produit in produits %}
+					<tr>
+						<td>{{ produit.id }}</td>
+
+						<td>{{ produit.titre|capitalize }}</td>
+
+						<td>{{ produit.prix }}</td>
+
+						<td>
+							{% if produit.description %}
+
+								{% if produit.description|length > 30 %}
+									{{ produit.description|slice(0,27) }}...
+								{% else %}
+									{{ produit.description }}
+								{% endif %}
+
+							{% else %}
+								<span class="text-danger">N.R</span>
+							{% endif %}
+						</td>
+
+						<td>{{ produit.categorie.nom }}</td>
+
+						<td>
+							{% if produit.marque %}
+								{{ produit.marque.nom }}
+							{% else %}
+								<span class="text-danger">N.R</span>
+							{% endif %}
+						</td>
+
+						<td>{{ produit.createdAt|date('d/m/Y H:i') }}</td>
+
+						<td>
+							<a href="{{ path( 'produit_details' , {'id' : produit.id } ) }}">
+
+								<svg fill="#000000" height="20px" width="20px" version="1.1" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 512 512">
+									<g>
+										<path d="m494.8,241.4l-50.6-49.4c-50.1-48.9-116.9-75.8-188.2-75.8s-138.1,26.9-188.2,75.8l-50.6,49.4c-11.3,12.3-4.3,25.4 0,29.2l50.6,49.4c50.1,48.9 116.9,75.8 188.2,75.8s138.1-26.9 188.2-75.8l50.6-49.4c4-3.8 11.7-16.4 0-29.2zm-238.8,84.4c-38.5,0-69.8-31.3-69.8-69.8 0-38.5 31.3-69.8 69.8-69.8 38.5,0 69.8,31.3 69.8,69.8 0,38.5-31.3,69.8-69.8,69.8zm-195.3-69.8l35.7-34.8c27-26.4 59.8-45.2 95.7-55.4-28.2,20.1-46.6,53-46.6,90.1 0,37.1 18.4,70.1 46.6,90.1-35.9-10.2-68.7-29-95.7-55.3l-35.7-34.7zm355,34.8c-27,26.3-59.8,45.1-95.7,55.3 28.2-20.1 46.6-53 46.6-90.1 0-37.2-18.4-70.1-46.6-90.1 35.9,10.2 68.7,29 95.7,55.4l35.6,34.8-35.6,34.7z"/>
+									</g>
+								</svg>
+							</a>
+						</td>
+
+						<td>
+							<a href="{{ path('produit_modifier', {'id' : produit.id}) }}">M</a>
+						</td>
+
+
+						<td>
+							<a href="{{ path('produit_supprimer', {'id' : produit.id }) }}" onclick="return confirm('voulez-vous vraiment supprimer ce produit ?')">S</a>
+						</td>
+
+					</tr>
+				{% endfor %}
+
+			</tbody>
+
+		</table>
+
+
+	{% else %}
+		<h4 class="text-danger text-center">Aucun résultat</h4>
+	{% endif %}
+
+{% endblock %}

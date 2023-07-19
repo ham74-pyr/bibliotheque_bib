@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Back office{% endblock %}
+
+{% block h1 %}Back office{% endblock %}
+
+{% block body %}
+
+    <ul>
+        <li>
+            <a class="" href="{{ path('produit_afficher') }}">Gestion des livres</a>
+        </li>
+
+        <li>
+            <a class="" href="{{ path('app_categorie_index') }}">Gestion des catégories</a>
+        </li>
+
+        <li>
+            <a class="" href="{{ path('app_marque_index') }}">Gestion des etat</a>
+        </li>
+
+        <li>
+            <a class="" href="{{ path('app_matiere_index') }}">Gestion des format</a>
+        </li>
+    </ul>
+
+{% endblock %}

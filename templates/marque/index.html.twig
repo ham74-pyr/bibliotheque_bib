@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion des états
+{% endblock %}
+
+
+{% block h1 %}Gestion des états
+{% endblock %}
+
+
+{% block body %}
+
+    <a class="btn btn-dark mx-3" href="{{ path('app_marque_new') }}">Ajouter</a>
+
+    <table class="table text-center mt-3 mx-3 ">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for marque in marques %}
+            <tr>
+                <td>{{ marque.id }}</td>
+                <td>{{ marque.nom }}</td>
+                <td>
+                    <a href="{{ path('app_marque_show', {'id': marque.id}) }}">show</a>
+                    <a href="{{ path('app_marque_edit', {'id': marque.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}

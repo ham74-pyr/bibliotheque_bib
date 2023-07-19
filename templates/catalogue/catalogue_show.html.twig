@@ -1,0 +1,37 @@
+{% extends "base.html.twig" %}{# héritage d'un fichier html.twig #}
+
+{% block body %}
+
+
+    <div class="container-fluid mt-2 mb-5"> <div class="row g-5">
+			<div class="col-md-12">
+				<div class="card">
+					<img src={{ asset('images/upload/' ~ produit.image ) }} alt="" style="width:200px" class="card-img-top">
+					<div class="card-body">
+						<div class="d-flex justify-content-between">
+							<span class="font-weight-bold">{{ produit.titre }}</span>
+							<span class="font-weight-bold">{{ produit.prix }}
+								€</span>
+						</div>
+						<p class="card-text mb-1 mt-1">{{produit.description}}</p>
+						<p class="card-text mb-1 mt-1">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem aut harum voluptate, excepturi omnis officia modi enim adipisci placeat vel dolor ducimus magnam dolores dignissimos inventore sapiente odio distinctio ipsa nam et. Maiores, iure. Libero sed sapiente illum rem, rerum voluptatem facere exercitationem soluta ratione voluptas? Illo quibusdam, placeat eius modi adipisci perspiciatis, cum pariatur praesentium voluptatem porro sint iusto nulla nemo dolorum provident consequuntur omnis labore numquam asperiores consequatur id incidunt architecto. Distinctio numquam earum est suscipit, neque quia deleniti temporibus explicabo, voluptas consectetur saepe enim, sunt optio voluptatum! Porro eum, modi praesentium nostrum rerum dolorum nulla facere consectetur. </p>
+						<div class="d-flex align-items-center flex-row">
+							<img src="" width="20">
+							<span class="guarantee">2 Years Guarantee</span>
+						</div>
+					</div>
+					<hr>
+					<div class="card-body">
+
+						<div class="text-right buttons">
+							<a class="btn btn-dark" href="{{ path('app_catalogue') }}">Retour</a>
+							<a href="{{ path('cart_add', {'id': produit.id})}} " class="btn btn-primary">Ajouter panier</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+    
+
+{% endblock %}

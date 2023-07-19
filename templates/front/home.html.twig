@@ -1,0 +1,149 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+	{{ parent() }}
+	| Accueil
+{% endblock %}
+
+{% block body %}
+
+	{% if app.user %}
+		{% set color = 'success' %}
+	{% else %}
+		{% set color = 'danger' %}
+	{% endif %}
+
+	<h2 class="text-center text-{{color}}">
+		Bonjour
+		{% if app.user %}
+			{{ app.user.prenom }}
+		{% endif %}
+	</h2>
+
+<div class="container">
+<img src="{{ asset('images/home3.jpg') }}" class="home3" alt="Responsive image">
+</div>
+
+
+
+
+
+
+<!--	<section class="sc">
+		<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+
+			<div class="carousel-inner">
+
+				<div class="wrapper">
+					<div class="carousel">
+						<img src="{{ asset('images/h1.jpg') }}" class="d-block w-100" alt="...">
+						<img src="{{ asset('images/symfony1.jpg') }}" class="d-block w-100" alt="...">
+						<img src="{{ asset('images/php.jpg') }}" class="d-block w-100" alt="...">
+						<img src="{{ asset('images/m1.jpg') }}" class="d-block w-100" alt="...">
+						<img src="{{ asset('images/ecole3.jpg') }}" class="d-block w-100" alt="...">
+						<img src="{{ asset('images/animaux1.jpg') }}" class="d-block w-100" alt="...">
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</section> -->
+
+	<div class="centrer">
+<div class="container-carousel mt-5 mb-5 mx-auto">
+
+			<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+				<div class="carousel-inner">
+
+					<div class="carousel-item active">
+						<div class="row g-5">
+							<div class="col-lg-2">
+								<img src="{{ asset('images/h1.jpg') }}" class="d-block w-100" alt="...">
+							</div>
+
+							<div class="col-lg-2">
+								<img src="{{ asset('images/h2.jpg') }}" class="d-block w-100" alt="...">
+							</div>
+
+							<div class="col-lg-2">
+								<img src="{{ asset('images/m1.jpg') }}" class="d-block w-100" alt="...">
+							</div>
+
+							<div class="col-lg-2">
+								<img src="{{ asset('images/m1.jpg') }}" class="d-block w-100" alt="...">
+							</div>
+
+							<div class="col-lg-2">
+								<img src="{{ asset('images/m1.jpg') }}" class="d-block w-100" alt="...">
+							</div>
+
+							<div class="col-lg-2">
+								<img src="{{ asset('images/m1.jpg') }}" class="d-block w-100" alt="...">
+							</div>
+						</div>
+					</div>
+
+					<div class="carousel-item">
+						<div class="row g-5">
+							<div class="col-lg-2">
+								<img src="{{ asset('images/h1.jpg') }}" class="d-block w-100" alt="...">
+							</div>
+
+							<div class="col-lg-2">
+								<img src="{{ asset('images/h2.jpg') }}" class="d-block w-100" alt="...">
+							</div>
+
+							<div class="col-lg-2">
+								<img src="{{ asset('images/m1.jpg') }}" class="d-block w-100" alt="...">
+							</div>
+
+							<div class="col-lg-2">
+								<img src="{{ asset('images/m1.jpg') }}" class="d-block w-100" alt="...">
+							</div>
+
+							<div class="col-lg-2">
+								<img src="{{ asset('images/m1.jpg') }}" class="d-block w-100" alt="...">
+							</div>
+
+							<div class="col-lg-2">
+								<img src="{{ asset('images/m1.jpg') }}" class="d-block w-100" alt="...">
+							</div>
+						</div>
+					</div>
+
+
+					<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Previous</span>
+					</button>
+					<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Next</span>
+					</button>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+<div class="card_animation">
+	<div class="col-lg-2 card_img1">
+		<img src="{{ asset('images/h1.jpg') }}" class="d-block w-100" alt="...">
+	</div>
+
+<div class="col-lg-2 card_img2">
+
+		<img src="{{ asset('images/h2.jpg') }}" class="d-block w-100" alt="...">
+	</div>
+
+<div class="col-lg-2 card_img3">
+
+		<img src="{{ asset('images/m1.jpg') }}" class="d-block w-100" alt="...">
+	</div>
+
+
+{% endblock %}
+
+
+
+
