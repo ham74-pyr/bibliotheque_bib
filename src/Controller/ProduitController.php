@@ -51,7 +51,6 @@ class ProduitController extends AbstractController
             l'entity Produit est la table Produit
             les objets issus de l'entity Produit sont les données de la table Produit
         */
-        dump($produits);
         return $this->render('produit/produit_afficher.html.twig', [
             'produits' => $produits
         ]);
@@ -65,7 +64,6 @@ class ProduitController extends AbstractController
     public function produit_ajouter(Request $request, ProduitRepository $produitRepository): Response
     {
         $produit = new Produit();
-        dump($produit);
         /*
             Pour créer un formulaire, on utilise la méthode createForm() provenant de la class AbstractController
             1e argument obligatoire : class contenant le $builder
@@ -111,13 +109,10 @@ class ProduitController extends AbstractController
                 $produit->setImage($nomImage);
             }
 
-            dump($produit);
             $produit->setCreatedAt(new \DateTimeImmutable('now'));
-            dump($produit);
 
             // Insertion en bdd (méthodes add() ou save() )
             $produitRepository->add($produit, true);
-            dump($produit);
 
             // notification
             $this->addFlash('success', 'Le produit a bien été ajouté');
@@ -136,11 +131,6 @@ class ProduitController extends AbstractController
      */
     public function produit_details(Produit $produit, CacheManager $imagineCacheManager): Response
     {
-        //                         $id, ProduitRepository $produitRepository
-        // dump($id);
-        // $produit = $produitRepository->find($id);
-        //dd($produit);
-
         return $this->render('produit/produit_details.html.twig', [
             'produit' => $produit
         ]);
