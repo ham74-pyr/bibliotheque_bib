@@ -53,19 +53,7 @@ class FrontController extends AbstractController // héritage
      */
     public function home(): Response
     {
-
-        $prenomController = 'Louise';
-        $fruits = ['kiwi', 'fraise', 'pomme'];
-
-        dump($prenomController);
-        //dd($fruits); // dd = dump($fruits);die;
-
-        return $this->render('front/home.html.twig', [
-            // key => value
-            // key => nom récupéré en twig
-            // value => nom de la fonction du controller
-            'prenomTwig' => $prenomController
-        ]);
+        return $this->render('front/home.html.twig');
     }
     /** 
      * Page principale du site 
