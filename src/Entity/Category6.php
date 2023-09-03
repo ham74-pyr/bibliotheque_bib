@@ -2,11 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\Category1Repository;
+use App\Repository\Category6Repository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: Category1Repository::class)]
-class Category1
+#[ORM\Entity(repositoryClass: Category6Repository::class)]
+class Category6
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]

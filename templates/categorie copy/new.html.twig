@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} | Ajouter une catégorie{% endblock %}
+
+{% block h1 %}Ajouter une catégorie{% endblock %}
+
+{% block body %}
+    <a class="btn btn-dark mx-3 " href="{{ path('app_categorie_index') }}">Retour</a>
+
+    {{ include('categorie/_form.html.twig') }}
+    
+{% endblock %}
