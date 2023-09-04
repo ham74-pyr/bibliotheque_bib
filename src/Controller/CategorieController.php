@@ -42,7 +42,7 @@ class CategorieController extends AbstractController
     /**
      * @Route("/ajouter", name="app_categorie_new", methods={"GET", "POST"})
      */
-    public function new(Request $request, CategorieRepository $categorieRepository): Response
+    public function new(Request $request,CategorieRepository $categorieRepository): Response
     {
         $categorie = new Categorie();
         $form = $this->createForm(CategorieType::class, $categorie);
@@ -60,20 +60,8 @@ class CategorieController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/{id}", name="app_categorie_show", methods={"GET"})
-     */
-
-        public function show(Categorie $categorie, ProduitRepository $produitRepository): Response
-    {
-        $produits = $produitRepository->findBy(['categorie' => $categorie]);
-        return $this->render('categorie/show.html.twig', [
-            'categorie' => $categorie,
-            'produits' => $produits,
-        ]);
-    }
-/*
-    #[Route('/categorie/{id}', name: 'app_categorie_show')]
+    
+    #[Route('/{id}', name: 'app_categorie_show')]
     public function showByCategory(Categorie $categorie, ProduitRepository $produitRepository): Response
     {
         $produits = $produitRepository->findBy(['categorie' => $categorie]);
@@ -84,7 +72,23 @@ class CategorieController extends AbstractController
         ]);
     }
 
-*/
+    #[Route('/{nom}', name: 'app_categorie_show_by_name')]
+    public function showByCategoryName($nom, CategorieRepository $categorieRepository, ProduitRepository $produitRepository): Response
+    {
+        $categorie = $categorieRepository->findOneByNom($nom);
+
+        if (!$categorie) {
+            throw $this->createNotFoundException('Category not found');
+        }
+
+        $produits = $produitRepository->findBy(['categorie' => $categorie]);
+
+        return $this->render('categorie/show_cnom.html.twig', [
+            'categorie' => $categorie,
+            'produits' => $produits,
+        ]);
+    }
+
 
 
 
@@ -124,8 +128,29 @@ class CategorieController extends AbstractController
 
     //---------------------------------------------------------------------
 
+    /**
+     * @Route("/{id}", name="produit_par_categorie", methods={"GET"})
+     */
 
-   
+    public function produit_par_categorie(Categorie $categorie, ProduitRepository $produitRepository): Response
+    {
+        $produits = $produitRepository->findBy(['categorie' => $categorie]);
+        return $this->render('categorie/produit_par_categorie.html', [
+            'categorie' => $categorie,
+            'produits' => $produits,
+        ]);
+    }
 
+    /**
+     * @Route("/{id}/liste-par-categorie/{categorie}/", name="liste-par-categorie", methods={"GET"})
+     */
+    public function listByGenre(CategorieRepository $livreRepository, $genre): Response
+    {
+        $livres =  $livreRepository->findByGenre($genre);
+
+        return $this->render('livre/chercher.html.twig', [
+            'livres' => $livres,
+        ]);
+    }
   
 }

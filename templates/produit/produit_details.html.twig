@@ -38,17 +38,6 @@
         </tr>
 
         <tr>
-            <th>Image</th>
-            <td>
-                {% if produit.image %}
-                    {# <img src="" alt=""> #}
-                {% else %}
-                    <span class="text-danger">N.R</span>
-                {% endif %}
-            </td>
-        </tr>
-
-        <tr>
             <th>Création</th>
             <td>{{ produit.createdAt|date('d/m/Y H:i') }}</td>
         </tr>

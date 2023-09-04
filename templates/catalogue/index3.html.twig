@@ -1,0 +1,414 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" href="{{ asset('css/style1.css') }}">
+{% endblock %}
+
+
+{% block title %}Hello CatalogueController!
+{% endblock %}
+
+{% block h1 %}
+	<select class="form-select" aria-label="Default select example">
+		<option selected>Tous catégories</option>
+		<option value="1">Langages de programmation</option>
+		<option value="2">scolaires</option>
+		<option value="3">Nature et animaux</option>
+		<option value="4">Romans et littérature</option>
+		<option value="5">Mangas</option>
+	</select>
+
+
+{% endblock %}
+
+
+{% block body %}
+------------------------------------------------------------------------
+<h1>Menu Catégories</h1>
+<select class="form-select" id="categorie-select" onchange="filterProducts()">
+	<option value="{{ path('app_categorie_index') }}">Toutes les catégories</option>
+	{% for categorie in categories %}
+		<option value="{{ path('app_categorie_index', {'categorieId': categorie.id}) }}">
+			{{ categorie.nom }}
+		</option>
+	{% endfor %}
+</select>
+
+<h2>Produits</h2>
+<div class="row">
+	{% if filteredProduits is not empty %}
+		{% for produit in filteredProduits %}
+			<div
+				class="col-12 col-md-4 col-lg-3">
+				<!-- Votre code pour afficher la carte produit -->
+
+			</div>
+		{% endfor %}
+	{% else %}
+		<p>Aucun produit trouvé dans le Catalogue</p>
+	{% endif %}
+</div>
+
+<script>
+	function filterProducts() {
+const categorieId = document.getElementById('categorie-select').value;
+if (categorieId) {
+
+window.location.href = '{{ path('app_categorie_index') }}?categorieId=' + categorieId;
+
+} else {
+window.location.href = '{{ path('app_categorie_index') }}';
+}
+}
+</script>
+
+
+
+-----------------------------------------------------------------------------
+<!--=========================================
+	<div class="galerie row">
+		{% for produit in produits %}
+
+			<div class="col-md-4 col-sm-6">
+				<div class="row row-cols-1 row-cols-md-x g-1 mt-3 mb-6">
+					<div class="col">
+						<div class="card ">
+							<img src={{ asset('images/upload/' ~ produit.image ) }} alt="" style="width:8rem" class="card-img-top p-3">
+							<div class="card-body">
+								<h5 class="card-title">>{{ produit.titre }}</h5>
+								<span class="font-weight-bold">{{ produit.prix }}
+									<p class="card-text">{{ produit.description|slice(0,27) }}...</p>
+									<a href="{{ path("cart_add", {'id': produit.id})}} " class="btn btn-primary">Ajouter panier</a>
+									<a href="{{ path('catalogue_show', {'id': produit.id}) }}" class="btn btn-primary">Voir</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+		{% else %}
+			<p>Aucun produit trouvé dans le Catalogue</p>
+		{% endfor %}
+	</div>
+
+
+	
+
+<div class="container-fluid galerie row mt-3">
+	{% block h2 %} Langages {% endblock %}
+	{% set filteredProduits = produits|filter(item => item.categorie.nom == 'Langages de programation') %}
+	{% if filteredProduits|length > 0 %}
+		{% for produit in filteredProduits %}
+			<div class="col-md-2 col-sm-6">
+<div class="row row-cols-1 row-cols-md-x g-1 mt-3 mb-6">
+
+					<div class="col">
+						<div class="card">
+							<img src="{{ asset('images/upload/' ~ produit.image) }}" alt="" style="width:8rem" class="card-img-top p-3">
+							<div class="card-body">
+								<h5 class="card-title">{{ produit.titre }}</h5>
+								<span class="font-weight-bold">{{ produit.prix }}</span>
+								<p class="card-text">{{ produit.description }}</p>
+								<a href="{{ path('cart_add', {'id': produit.id})}}" class="btn btn-primary">Voir</a>
+								<p class="card-category">Catégorie:
+									{{ produit.categorie.nom }}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	{% else %}
+		<p>Aucun produit trouvé dans le Catalogue</p>
+	{% endif %}
+</div>
+
+======================================-->
+
+	<div class="label">
+		<h1>Tous les categories</h1>
+	</div>
+	<div class="container py-5">
+		<div class="row justify-content-space-around">
+			<select id="categorieFilter">
+				<option value="">Toutes les catégories</option>
+				<option value="Langages de programmation">Langages de programmation</option>
+				<!-- Ajoutez d'autres options de catégorie ici -->
+				<option value="scolaires</option">scolaires</option>
+			</option<optionvalue="natureetanimaux">Nature et animaux</option>
+		<option value="Romans et littérature">Romans et littérature</option>
+		<option value="Romans et littérature">Mangas</option>
+	</select>
+</div>
+<div class="row justify-content-space-around">
+	{% set selectedCategorie = app.request.query.get('categorie.nom') %}
+	{% set filteredProduits = produits|filter(item => selectedCategorie is empty or item.categorie.nom == selectedCategorie) %}
+	{% if filteredProduits|length > 0 %}
+		{% for produit in filteredProduits %}
+			<!-- Le reste de votre code pour afficher les produits -->
+			<div class="col-12 col-md-4 col-lg-3">
+
+				<div class="card box-shadow mx-auto my-5 ">
+					<img src="{{ asset('images/upload/' ~ produit.image) }}" class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title">{{ produit.titre }}</h5>
+						<hr>
+						<p class="card-text">
+							{% if produit.description %}
+								{{ produit.description|slice(0,50) }}...
+							{% else %}
+								<span class="text-danger">N.R<br>...</span>
+							{% endif %}
+						</p>
+					</div>
+					<a href="{{ path('catalogue_show', {'id': produit.id}) }}" class="btn btn-primary">Voir</a>
+
+					<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1440 320">
+						<path fill="#ffffff" fill-opacity="1" d="M0,192L48,197.3C96,203,192,213,288,192C384,171,480,117,576,90.7C672,64,768,64,864,85.3C960,107,1056,149,1152,186.7C1248,224,1344,256,1392,272L1440,288L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+					</svg>
+					<a href="{{ path( 'cart_add', {'id':produit.id})}} ">
+						<i class="fa-solid fa-cart-plus"></i>
+					</a>
+				</div>
+			</div>
+
+		{% endfor %}
+	{% else %}
+		<p>Aucun produit trouvé dans le Catalogue</p>
+	{% endif %}
+</div></div>
+=========================================-->
+<div class="label">
+<h1>Langages de programation</h1></div><div class="container py-5">
+<div class="row justify-content-space-around">
+
+	{% set filteredProduits = produits|filter(item => item.categorie.nom == 'Langages de programation') %}
+	{% if filteredProduits|length > 0 %}
+		{% for produit in filteredProduits %}
+
+			<div class="col-12 col-md-4 col-lg-3">
+
+				<div class="card box-shadow mx-auto my-5 ">
+					<img src="{{ asset('images/upload/' ~ produit.image) }}" class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title">{{ produit.titre }}</h5>
+						<hr>
+						<p class="card-text">
+							{% if produit.description %}
+								{{ produit.description|slice(0,50) }}...
+							{% else %}
+								<span class="text-danger">N.R<br>...</span>
+							{% endif %}
+						</p>
+					</div>
+					<a href="{{ path('catalogue_show', {'id': produit.id}) }}" class="btn btn-primary">Voir</a>
+
+					<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1440 320">
+						<path fill="#ffffff" fill-opacity="1" d="M0,192L48,197.3C96,203,192,213,288,192C384,171,480,117,576,90.7C672,64,768,64,864,85.3C960,107,1056,149,1152,186.7C1248,224,1344,256,1392,272L1440,288L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+					</svg>
+					<a href="{{ path( 'cart_add', {'id':produit.id})}} ">
+						<i class="fa-solid fa-cart-plus"></i>
+					</a>
+				</div>
+			</div>
+
+		{% endfor %}
+	{% else %}
+		<p>Aucun produit trouvé dans le Catalogue</p>
+	{% endif %}
+
+</div></div><!------------------------------------------------------------><div class="label">
+<h1>Livres scolaires</h1></div><div class="container py-5">
+<div class="row justify-content-start">
+	{% set filteredProduits = produits|filter(item => item.categorie.nom == 'Livres scolaires') %}
+
+	{% if filteredProduits|length > 0 %}
+		{% for produit in filteredProduits %}
+
+			<div class="col-12 col-lg-3">
+				<div class="card box-shadow mx-auto my-5 ">
+					<img src="{{ asset('images/upload/' ~ produit.image) }}" class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title">{{ produit.titre }}</h5>
+						<hr>
+						<p class="card-text">
+							{% if produit.description %}
+								{{ produit.description|slice(0,50) }}...
+							{% else %}
+								<span class="text-danger">N.R<br>...</span>
+							{% endif %}
+						</p>
+					</div>
+					<a href="{{ path('catalogue_show', {'id': produit.id}) }}" class="btn btn-primary">Voir</a>
+
+					<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1440 320">
+						<path fill="#ffffff" fill-opacity="1" d="M0,192L48,197.3C96,203,192,213,288,192C384,171,480,117,576,90.7C672,64,768,64,864,85.3C960,107,1056,149,1152,186.7C1248,224,1344,256,1392,272L1440,288L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+					</svg>
+					<a href="{{ path( 'cart_add', {'id':produit.id})}} ">
+						<i class="fa-solid fa-cart-plus"></i>
+					</a>
+				</div>
+			</div>
+
+		{% endfor %}
+	{% else %}
+		<p>Aucun produit trouvé dans le Catalogue</p>
+	{% endif %}
+
+</div></div><!------------------------------------------------------------><div class="label">
+<h1>Romans et littérature</h1></div><div class="container py-5">
+<div class="row justify-content-start">
+	{% set filteredProduits = produits|filter(item => item.categorie.nom == 'Romans et littérature') %}
+
+
+	{% if filteredProduits|length > 0 %}
+		{% for produit in filteredProduits %}
+
+			<div class="col-12 col-lg-3">
+				<div class="card box-shadow mx-auto my-5 ">
+					<img src="{{ asset('images/upload/' ~ produit.image) }}" class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title">{{ produit.titre }}</h5>
+						<hr>
+						<p class="card-text">
+							{% if produit.description %}
+								{{ produit.description|slice(0,50) }}...
+							{% else %}
+								<span class="text-danger">N.R<br>...</span>
+							{% endif %}
+						</p>
+					</div>
+					<a href="{{ path('catalogue_show', {'id': produit.id}) }}" class="btn btn-primary">Voir</a>
+
+					<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1440 320">
+						<path fill="#ffffff" fill-opacity="1" d="M0,192L48,197.3C96,203,192,213,288,192C384,171,480,117,576,90.7C672,64,768,64,864,85.3C960,107,1056,149,1152,186.7C1248,224,1344,256,1392,272L1440,288L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+					</svg>
+					<a href="{{ path( 'cart_add', {'id':produit.id})}} ">
+						<i class="fa-solid fa-cart-plus"></i>
+					</a>
+				</div>
+			</div>
+
+		{% endfor %}
+	{% else %}
+		<p>Aucun produit trouvé dans le Catalogue</p>
+	{% endif %}
+
+</div></div><!------------------------------------------------------------><div class="label">
+<h1>Mangas</h1></div><div class="container py-5">
+<div class="row justify-content-start">
+	{% set filteredProduits = produits|filter(item => item.categorie.nom == 'Mangas') %}
+
+
+	{% if filteredProduits|length > 0 %}
+		{% for produit in filteredProduits %}
+
+			<div class="col-12 col-lg-3">
+				<div class="card box-shadow mx-auto my-5 ">
+					<img src="{{ asset('images/upload/' ~ produit.image) }}" class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title">{{ produit.titre }}</h5>
+						<hr>
+						<p class="card-text">
+							{% if produit.description %}
+								{{ produit.description|slice(0,50) }}...
+							{% else %}
+								<span class="text-danger">N.R<br>...</span>
+							{% endif %}
+						</p>
+					</div>
+					<a href="{{ path('catalogue_show', {'id': produit.id}) }}" class="btn btn-primary">Voir</a>
+
+					<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1440 320">
+						<path fill="#ffffff" fill-opacity="1" d="M0,192L48,197.3C96,203,192,213,288,192C384,171,480,117,576,90.7C672,64,768,64,864,85.3C960,107,1056,149,1152,186.7C1248,224,1344,256,1392,272L1440,288L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+					</svg>
+					<a href="{{ path( 'cart_add', {'id':produit.id})}} ">
+						<i class="fa-solid fa-cart-plus"></i>
+					</a>
+				</div>
+			</div>
+
+		{% endfor %}
+	{% else %}
+		<p>Aucun produit trouvé dans le Catalogue</p>
+	{% endif %}
+
+</div></div><!------------------------------------------------------------><div class="label">
+<h1>Cuisines du monde</h1></div><div class="container py-5">
+<div class="row justify-content-start">
+	{% set filteredProduits = produits|filter(item => item.categorie.nom == 'Cuisines du monde') %}
+
+
+	{% if filteredProduits|length > 0 %}
+		{% for produit in filteredProduits %}
+
+			<div class="col-12 col-lg-3">
+				<div class="card box-shadow mx-auto my-5 ">
+					<img src="{{ asset('images/upload/' ~ produit.image) }}" class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title">{{ produit.titre }}</h5>
+						<hr>
+						<p class="card-text">
+							{% if produit.description %}
+								{{ produit.description|slice(0,50) }}...
+							{% else %}
+								<span class="text-danger">N.R<br>...</span>
+							{% endif %}
+						</p>
+					</div>
+					<a href="{{ path('catalogue_show', {'id': produit.id}) }}" class="btn btn-primary">Voir</a>
+
+					<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1440 320">
+						<path fill="#ffffff" fill-opacity="1" d="M0,192L48,197.3C96,203,192,213,288,192C384,171,480,117,576,90.7C672,64,768,64,864,85.3C960,107,1056,149,1152,186.7C1248,224,1344,256,1392,272L1440,288L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+					</svg>
+					<a href="{{ path( 'cart_add', {'id':produit.id})}} ">
+						<i class="fa-solid fa-cart-plus"></i>
+					</a>
+				</div>
+			</div>
+
+		{% endfor %}
+	{% else %}
+		<p>Aucun produit trouvé dans le Catalogue</p>
+	{% endif %}
+
+</div></div><!------------------------------------------------------------><div class="label">
+<h1>Nature et animaux</h1></div><div class="container py-5">
+<div class="row justify-content-start">
+	{% set filteredProduits = produits|filter(item => item.categorie.nom == 'Nature et animaux') %}
+
+	{% if filteredProduits|length > 0 %}
+		{% for produit in filteredProduits %}
+
+			<div class="col-12 col-lg-3">
+				<div class="card box-shadow mx-auto my-5 ">
+					<img src="{{ asset('images/upload/' ~ produit.image) }}" class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title">{{ produit.titre }}</h5>
+						<hr>
+						<p class="card-text">
+							{% if produit.description %}
+								{{ produit.description|slice(0,50) }}...
+							{% else %}
+								<span class="text-danger">N.R<br>...</span>
+							{% endif %}
+						</p>
+					</div>
+					<a href="{{ path('catalogue_show', {'id': produit.id}) }}" class="btn btn-primary">Voir</a>
+
+					<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1440 320">
+						<path fill="#ffffff" fill-opacity="1" d="M0,192L48,197.3C96,203,192,213,288,192C384,171,480,117,576,90.7C672,64,768,64,864,85.3C960,107,1056,149,1152,186.7C1248,224,1344,256,1392,272L1440,288L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+					</svg>
+					<a href="{{ path( 'cart_add', {'id':produit.id})}} ">
+						<i class="fa-solid fa-cart-plus"></i>
+					</a>
+				</div>
+			</div>
+
+		{% endfor %}
+	{% else %}
+		<p>Aucun produit trouvé dans le Catalogue</p>
+	{% endif %}
+
+</div></div><!------------------------------------------------------------>{% endblock %}

@@ -61,14 +61,11 @@ h5 {
 .card {
   border-radius: 25px;
   margin: auto;
-	
-	
 }
 
 .card img {
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
-	
 }
 
 .card svg {

@@ -29,7 +29,6 @@ class CatalogueController extends AbstractController
         $produits = $produitRepository->findBy(['categorie' => $categorieNom]);
 
         return $this->render('catalogue/index.html.twig', [
-            
             'produits' => $produits
         ]);
     }

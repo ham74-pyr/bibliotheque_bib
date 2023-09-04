@@ -1,0 +1,35 @@
+
+{% extends "base.html.twig" %}
+
+{% block title %}
+	{{ parent() }}
+	| Par Categorie
+{% endblock %}
+
+{% block h1 %} Afficher par Categorie {% endblock %}
+
+{% block body %}
+<table class="table mt-3">
+	<tbody>
+		<tr>
+			<th>Id</th>
+			<td>{{ categorie.id }}</td>
+		</tr>
+		<tr>
+			<th>Nom de la catégorie</th>
+			<td>{{ categorie.nom }}</td>
+		</tr>
+		<tr>
+			<th>Livres</th>
+			<td>
+				{% for produit in categorie.produits %}
+					<li>{{ produit.titre }}</li>
+				{% endfor %}
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+
+{% endblock %}
+

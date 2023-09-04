@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{ parent() }}
+	|
+	{{ categorie.nom }}
+{% endblock %}
+
+
+<h1>{{ categorie.nom }}</h1>
+
+{% if produits is not empty %}
+	<ul>
+		{% for produit in produits %}
+			<li>
+				{{ produit.nom }}
+				-
+				{{ produit.prix }}
+				USD
+			</li>
+		{% endfor %}
+	</ul>
+{% else %}
+	<p>No products found in this category.</p>
+{% endif %}

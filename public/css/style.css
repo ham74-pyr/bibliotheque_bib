@@ -1,10 +1,4 @@
-/* CSS */
 
-/*.img60{
-    width: 50vw;
-    display: block;
-    margin: 0 auto;
-}*/
 
 
 #produit_titre::placeholder {
@@ -75,7 +69,6 @@ nav {
 }
 
 .container {
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -240,11 +233,6 @@ a:hover {
   opacity: 1;
 }
 
-.card_img1, .card_img2:hover:after{
-  transform: rotate(10deg);
-}.card_img2, .card_img3:hover:after{
-  transform: rotate(15deg);
-}
 
 
 /********************************/

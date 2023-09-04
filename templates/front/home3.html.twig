@@ -1,0 +1,265 @@
+
+{% extends "base.html.twig" %}
+{% block body %}
+
+<!--Setting the viewport -->
+<meta
+name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!--Import fonts-->
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=Monoton &display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@1&display=swap');
+</style>
+
+<!-- Load an icon library -->
+<link
+rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!--Begin navbar-->
+<div class="navbar">
+	<a class="active" href="#home">
+		<i class="fa fa-fw fa-home"></i>
+		Home</a>
+	<a href="#">
+		<i class="fa fa-fw fa-search"></i>
+		Search</a>
+	<a href="#top-picks">Our Top Picks</a>
+	<a href="#store-info">Store & Events</a>
+	<a href="mailto:lynn-kassem@hotmail.com" target="_blank">
+		<i class="fa fa-fw fa-envelope"></i>
+		Contact</a>
+	<a href="#">
+		<i class="fa fa-fw fa-user"></i>
+		Login</a>
+	<a href="#">
+		<i class="fa fa-shopping-cart"></i>
+		Cart</a>
+</div>
+<!--End navbar-->
+
+<!--Begin hero-image-->
+<section id="home" class="hero">
+	<div class="hero-content">
+		<h1 class="hero-title">The Bookstore</h1>
+		<h2 class="hero-subtitle">“Bookshops are places of endless entertainment and renewal – what’s not to love?”</h2>
+	</div>
+</section>
+<!--End hero-image-->
+
+<!--Begin second navbar-->
+<div class="navbar2">
+	<div class="dropdown">
+		<button class="dropbtn">Social Media
+			<i class="fa fa-caret-down"></i>
+		</button>
+		<div class="dropdown-content">
+			<div class="row">
+				<div class="column">
+					<a href="#" class="fa fa-linkedin">
+						LinkedIn</a>
+					<a href="#" class="fab fa-tiktok">TikTok</a>
+				</div>
+				<div class="column">
+					<a href="#" class="fa fa-instagram">
+						Instagram</a>
+					<a href="#" class="fa fa-whatsapp">
+						Whatsapp</a>
+				</div>
+				<div class="column">
+					<a href="#" class="fa fa-facebook">
+						Facebook</a>
+					<a href="#" class="fa fa-twitter">
+						Twitter</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="dropdown">
+		<button class="dropbtn">Our Book Colloection
+			<i class="fa fa-caret-down"></i>
+		</button>
+		<div class="dropdown-content">
+			<div class="row">
+				<div class="column">
+					<h5>Fiction</h5>
+					<a href="#">Sci-Fi & Fantasy</a>
+					<a href="#">Thrillers</a>
+					<a href="#">Contemporary</a>
+				</div>
+				<div class="column">
+					<h5>Non-Fiction</h5>
+					<a href="#">History</a>
+					<a href="#">Bigraphy</a>
+					<a href="#">Cookbooks, Health and Dieting</a>
+				</div>
+				<div class="column">
+					<h5>Other</h5>
+					<a href="#">E-books</a>
+					<a href="#">AudioBooks</a>
+					<a href="#">Manga & Comics</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="dropdown">
+		<button class="dropbtn">Gifts and Accessories
+			<i class="fa fa-caret-down"></i>
+		</button>
+		<div class="dropdown-content">
+			<div class="row">
+				<div class="column">
+					<h5>Bookish Accessories</h5>
+					<a href="#">Bookmarks</a>
+					<a href="#">Costum Book Stamps</a>
+					<a href="#">Page Anchors</a>
+				</div>
+				<div class="column">
+					<h5>Book Merchandise</h5>
+					<a href="#">Bookend Sets</a>
+					<a href="#">Literary Post Cards</a>
+					<a href="#">Other</a>
+				</div>
+				<div class="column">
+					<h5>Costumize Your Gift</h5>
+					<a href="#">Socks, Scarves, Face Masks & Tote Bags</a>
+					<a href="#">Mugs</a>
+					<a href="#">Candles</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--End second navbar-->
+
+<!--Begin main-->
+<div class="main">
+	<div class="top-picks">
+		<h3 id="top-picks">Our Top Picks</h3>
+		<h4>Best Sellers</h4>
+		<div class="book-container">
+			<div class="book-box">
+				<img src="https://i.ibb.co/nswyRCT/atomic-habits.jpg" alt="atomic-habits">
+			</div>
+			<div class="book-box">
+				<img src="https://i.ibb.co/ctf2S9q/the-storyteller.jpg" alt="the-storyteller">
+			</div>
+			<div class="book-box">
+				<img src="https://i.ibb.co/WgK0nst/seven-husbands.jpg" alt="seven-husbands">
+			</div>
+			<div class="book-box">
+				<img src="https://i.ibb.co/5YkQkCR/pokemon.jpg" alt="pokemon">
+			</div>
+			<div class="book-box">
+				<img src="https://i.ibb.co/TrQjxvd/dune.jpg" alt="dune">
+			</div>
+			<div class="book-box">
+				<img src="https://i.ibb.co/6vm2tR2/cloud-cuckoo-land.jpg" alt="cloud-cuckoo-land">
+			</div>
+		</div>
+		<h4>New Releases</h4>
+		<div class="book-container">
+			<div class="book-box">
+				<img src="https://i.ibb.co/dDTv3Kf/go-tell-the-bees.jpg" alt="go-tell-the-bees">
+			</div>
+			<div class="book-box">
+				<img src="https://i.ibb.co/Lh90LxG/it-ends-with-us.jpg" alt="it-ends-with-us">
+			</div>
+			<div class="book-box">
+				<img src="https://i.ibb.co/5Mx7Wbf/bunnicula.jpg" alt="bunnicula">
+			</div>
+			<div class="book-box">
+				<img src="https://i.ibb.co/Jn5zJ8p/will.jpg" alt="will">
+			</div>
+			<div class="book-box">
+				<img src="https://i.ibb.co/9pBJM7c/the-wonderful-things-you-ll-be.jpg" alt="the-wonderful-things-you-ll-be">
+			</div>
+			<div class="book-box">
+				<img src="https://i.ibb.co/JKKVcfJ/the-boy-the-mole-the-fox-and-the-horse.jpg" alt="the-boy-the-mole-the-fox-and-the-horse">
+			</div>
+		</div>
+	</div>
+	<div class="rules">
+		<h3>Store shopping & Cafe rules</h3>
+		<h4>You can still come and enjoy browsing books the old fashion way or have a drink while reading and chatting at our cafe</h4>
+		<ul class="rules-list">
+			<Li>Please wear a face mask</li>
+			<Li>Try to keep a distance of 1.5 meters between you and others</li>
+			<Li>Have your Corona Pass/Check ready</li>
+			<Li>Shhh.. just kidding, but keep in mind that others might be reading</li>
+			<Li>And finally have a wonderful time</li>
+		</ul>
+	</div>
+	<div class="Sto-eve">
+		<h3 id="store-info">Store Events</h3>
+		<h4>The following table show the dates of the upcoming events in our store
+		</h4>
+		<!--Begin table-->
+		<table class="events-table">
+			<tr>
+				<th>Date</th>
+				<th>Event</th>
+			</tr>
+			<tr>
+				<td>Friday 19/11</td>
+				<td>Signing: Atomic Habits book</td>
+			</tr>
+			<tr>
+				<td>Tuesday 23/11</td>
+				<td>Fantasy Books Deals day</td>
+			</tr>
+			<tr>
+				<td>Wednesday 1/12</td>
+				<td>Book Club: Discussion Session</td>
+			</tr>
+			<tr>
+				<td>Thursday 8/12</td>
+				<td>Book Signing: The Amazing cookbook of tomorrow</td>
+			</tr>
+			<tr>
+				<td>Wednesday 15/12</td>
+				<td>Book Club: Discussion Session</td>
+			</tr>
+			<tr>
+				<td>Thursday 23/12</td>
+				<td>Hand-made bookish accessories workshop</td>
+			</tr>
+		</table>
+		<!--End table-->
+	</div>
+</div>
+<!--End main-->
+
+<!--Begin note-->
+<div class="things">
+	<div class="content">
+		<div class="arrow">
+			<div class="curve"></div>
+			<div class="point"></div>
+		</div>
+	</div>
+	<div class="content">
+		<p class="note">
+			You can find our contact Info here<br>just click On the hoverable circle that is the footer</p>
+	</div>
+</div>
+<!--End note-->
+
+<!--Begin footer-->
+<div class="footer">
+	<div id="button"></div>
+	<div id="container">
+		<div id="cont">
+			<div class="footer_center">
+				<p>
+					Address: Lorem ipsum dolor sit amet<br>
+					<i class="fa fa-phone">
+						0031 123456</i><br>
+					Test webpage by Lynn Kassem
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+<!--End footer-->
+{% endblock %}
