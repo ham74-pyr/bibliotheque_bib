@@ -2,77 +2,58 @@
 	<div class="container-fluid mx-3">
 		<div class="n-logos mb-0">
 			<a href="{{ path('home') }}"><img src="{{ asset('images/logo_removebg.png')}}" alt="logo1s"></a>
-			<a href="{{ path('home') }}"><img src="{{ asset('images/logo2s.png')}}" alt="logo2s" class="n-logo2"></a> 
-				</div> 
-				<button class="navbar-toggler bg-primary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon "></button>
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="navbar-nav mx-auto mb-2 mb-l g-0">
+			<a href="{{ path('home') }}"><img src="{{ asset('images/logo2s.png')}}" alt="logo2s" class="n-logo2"></a>
+		</div>
+		<button class="navbar-toggler bg-primary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon "></button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mx-auto mb-2 mb-l g-0">
+					<li class="nav-item px-2">
+						<a class="nav-link text-white" href="{{ path('home') }}">Accueil</a>
+					</li>
+					<li class="nav-item px-2">
+						<a class="nav-link text-white" href="{{ path('app_catalogue') }}">Catalogue</a>
+					</li>
+					<li class="nav-item px-2">
+						<a class="nav-link text-white" href="{{ path('cart_index')}} ">Panier</a>
+					</li>
+					{% if app.user %}
 						<li class="nav-item px-2">
-							<a class="nav-link text-white" href="{{ path('home') }}">Accueil</a>
+							<a class="nav-link text-white" href="{{ path('app_profil') }}">Profil</a>
 						</li>
-
-						<li class="nav-item px-2">
-							<a class="nav-link text-white" href="{{ path('app_catalogue') }}">Catalogue</a>
-						</li>
-
-						<li class="nav-item px-2">
-							<a class="nav-link text-white" href="{{ path('cart_index')}} ">Panier</a>
-
-						</li>
-
-						{% if app.user %}
-							<li class="nav-item px-2">
-								<a class="nav-link text-white" href="{{ path('app_profil') }}">Profil</a>
-							</li>
-
-							{% if is_granted('ROLE_ADMIN') %}
-
-
-								<div class="dropdown">
-									<a class="btn btn-primary  dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-										Back office
-
-									</a>
-
-									<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" id="dropdownMenu">
-										<li>
-											<a class="dropdown-item" href="{{ path('produit_afficher') }}">Gestion des livres</a>
-
-
-										</li>
-										<li>
-											<a class="dropdown-item" href="{{ path('app_categorie_index') }}">Gestion des catégories</a>
-
-
-										</li>
-										<li>
-											<a class="dropdown-item" href="{{ path('app_marque_index') }}">Gestion des etat</a>
-
-										</li>
-										<li>
-											<a class="dropdown-item" href="{{ path('app_matiere_index') }}">Gestion des format</a>
-
-
-										</li>
-
-									</ul>
-								</div>
-
-
-							{% endif %}
-							<li class="nav-item">
-								<a class="nav-link text-white" href="{{ path('app_logout') }}">Déconnexion</a>
-							</li>
-						{% else %}
-							<li class="nav-item">
-								<a class="nav-link text-white" href="{{ path('app_register') }}">Inscription</a>
-							</li>
-
-							<li class="nav-item">
-								<a class="nav-link text-white" href="{{ path('app_login') }}">Connexion</a>
-							</li>
+						{% if is_granted('ROLE_ADMIN') %}
+							<div class="dropdown">
+								<a class="btn btn-primary  dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+									Back office
+								</a>
+								<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" id="dropdownMenu">
+									<li>
+										<a class="dropdown-item" href="{{ path('produit_afficher') }}">Gestion des livres</a>
+									</li>
+									<li>
+										<a class="dropdown-item" href="{{ path('app_categorie_index') }}">Gestion des catégories</a>
+									</li>
+									<li>
+										<a class="dropdown-item" href="{{ path('app_marque_index') }}">Gestion des etat</a>
+									</li>
+									<li>
+										<a class="dropdown-item" href="{{ path('app_matiere_index') }}">Gestion des format</a>
+									</li>
+								</ul>
+							</div>
 						{% endif %}
-					</ul>
-				</div>
+						<li class="nav-item">
+							<a class="nav-link text-white" href="{{ path('app_logout') }}">Déconnexion</a>
+						</li>
+					{% else %}
+						<li class="nav-item">
+							<a class="nav-link text-white" href="{{ path('app_register') }}">Inscription</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-white" href="{{ path('app_login') }}">Connexion</a>
+						</li>
+					{% endif %}
+				</ul>
 			</div>
-		</nav>
+		</div>
+	</nav>
