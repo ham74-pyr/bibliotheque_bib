@@ -213,16 +213,16 @@ a:hover {
   font-size: 16px;
   padding: 7px;
 }
-.f-logos {
+.f-logos{
   width: 200px;
   margin-left: 60px;
   position: relative;
 }
-.f-logos img {
+.f-logos img{
   width: 200px;
   margin-left: 60px;
 }
-.f-logo2 {
+.f-logo2{
   position: absolute;
   opacity: 0;
   top: 0;
@@ -236,14 +236,14 @@ a:hover {
 
 
 /********************************/
-.n-logos {
+.n-logos{
   width: 70px;
   position: relative;
 }
-.n-logos img {
+.n-logos img{
   width: 100%;
 }
-.n-logo2 {
+.n-logo2{
   position: absolute;
   top: 0;
   left: 0;
