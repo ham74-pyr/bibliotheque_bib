@@ -31,8 +31,10 @@ class CategorieType extends AbstractType
                         'maxMessage' => 'Le nom de la catégorie doit comprendre moins de 30 caractères'
                     ])
                 ]
-            ])
-        ;
+                    ]);
+           
+
+    
     }
 
     public function configureOptions(OptionsResolver $resolver): void

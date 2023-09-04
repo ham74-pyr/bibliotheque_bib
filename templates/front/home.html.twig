@@ -7,18 +7,19 @@
 
 {% block body %}
 
-	{% if app.user %}
-		{% set color = 'success' %}
-	{% else %}
-		{% set color = 'danger' %}
-	{% endif %}
+	<section banner>
+		<div class="container mb-5">
+			<img src="{{ asset('images/home5.jpg') }}" class="home5 " alt="home5">
+		</div>
+	</section>
 
-	<h2 class="text-center text-{{color}}">
-		Bonjour
-		{% if app.user %}
-			{{ app.user.prenom }}
-		{% endif %}
-	</h2>
+	<section>
+		<div class="container-fluid">
+			<div class="row text-center">
+				<div class="col-lg-12 col-md-12 col-12">
+					<h2 class="sous-titre fs-20 fs-lg-36" style="font-family: francoisone_regular; color:#1d3039;">
+						Nos meilleures ventes
+					</h2>
 
 <div class="container">
 <img src="{{ asset('images/home3.jpg') }}" class="home3" alt="">
@@ -47,65 +48,65 @@
 			</div>
 		</div>
 
-	</section> -->
+	</section>
 
-	<div class="centrer">
-<div class="container-carousel mt-5 mb-5 mx-auto">
+
+	<div class="mb-auto ">
+		<div class="container-carousel mt-5 mb-5 mx-auto ">
 
 			<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
 				<div class="carousel-inner">
 
-					<div class="carousel-item active">
+					<div class="carousel-item ">
 						<div class="row g-5">
-							<div class="col-lg-2">
+							<div class="col ">
 								<img src="{{ asset('images/h1.jpg') }}" class="d-block w-100" alt="...">
 							</div>
 
-							<div class="col-lg-2">
+							<div class="col   ">
 								<img src="{{ asset('images/h2.jpg') }}" class="d-block w-100" alt="...">
 							</div>
 
-							<div class="col-lg-2">
+							<div class="col  ">
 								<img src="{{ asset('images/m1.jpg') }}" class="d-block w-100" alt="...">
 							</div>
-
-							<div class="col-lg-2">
+							<div class="col ">
 								<img src="{{ asset('images/m2.jpg') }}" class="d-block w-100" alt="...">
 							</div>
 
-							<div class="col-lg-2">
+							<div class="col ">
 								<img src="{{ asset('images/sql1.jpg') }}" class="d-block w-100" alt="...">
 							</div>
 
-							<div class="col-lg-2">
+							<div class="col ">
 								<img src="{{ asset('images/symfony1.jpg') }}" class="d-block w-100" alt="...">
 							</div>
 						</div>
 					</div>
 
-					<div class="carousel-item">
+					<div class="carousel-item active">
 						<div class="row g-5">
-							<div class="col-lg-2">
+							<div class="col ">
 								<img src="{{ asset('images/php.jpg') }}" class="d-block w-100" alt="...">
 							</div>
 
-							<div class="col-lg-2">
+							<div class="col ">
 								<img src="{{ asset('images/animaux1.jpg') }}" class="d-block w-100" alt="...">
 							</div>
 
-							<div class="col-lg-2">
+							<div class="col ">
 								<img src="{{ asset('images/ecole3.jpg') }}" class="d-block w-100" alt="...">
 							</div>
 
-							<div class="col-lg-2">
+							<div class="col ">
 								<img src="{{ asset('images/h3.jpg') }}" class="d-block w-100" alt="...">
 							</div>
 
-							<div class="col-lg-2">
+							<div class="col ">
 								<img src="{{ asset('images/ecole2.jpg') }}" class="d-block w-100" alt="...">
 							</div>
 
-							<div class="col-lg-2">
+							<div class="col ">
 								<img src="{{ asset('images/ecole4.jpg') }}" class="d-block w-100" alt="...">
 							</div>
 						</div>
@@ -125,25 +126,107 @@
 			</div>
 		</div>
 	</div>
-
-<div class="card_animation">
-	<div class="col-lg-2 card_img1">
-		<img src="{{ asset('images/h1.jpg') }}" class="d-block w-100" alt="...">
-	</div>
-
-<div class="col-lg-2 card_img2">
-
-		<img src="{{ asset('images/h2.jpg') }}" class="d-block w-100" alt="...">
-	</div>
-
+	<!--
+						<div class="container-recycle1">
+					
+							<div class="container-recycle2">
+								<div class="recycle3">
+					
+									<img src="{{ asset('images/recycle.png') }}" alt="Bannière" class="img-fluid">
+					
+									<a href="https://play.google.com/store/apps/details?id=com.recyclivre.app" target="_blank">
+										<img src="{{ asset('images/icon-google-play.png')}}" class="recycle1"></a>
+					
+									<a href="https://apps.apple.com/fr/app/recyclivre-rach%C3%A8te/id1519193195" target="_blank">
+										<img src="{{ asset('images/icon-app-store.png')}}" class="recycle2 "></a>
+								</div>
+							</div>
+					
 <div class="col-lg-2 card_img3">
 
 		<img src="{{ asset('images/m1.jpg') }}" class="d-block w-100" alt="...">
+						</div>
+					
+					-->
+	<div>
+		<h2 class="sous-titre fs-20 fs-lg-36 text-center" style="font-family: francoisone_regular; color:#1d3039;">Catégories</h2>
+		<div class="row mt-5">
+			<div class="d-grid gap-2 mb-3 col-lg-6">
+				<a class="btn btn-dark cat-b" href="{{ path('home') }}">Langages de programation</a>
+				<a class="btn btn-dark cat-b" href="{{ path('home') }}">Livres scolaires</a>
+				<a class="btn btn-dark cat-b" href="{{ path('home') }}">Nature et animaux</a>
+			</div>
+			<div class="d-grid gap-2 mb-3 col-lg-6">
+				<a class="btn btn-dark cat-b" href="{{ path('home') }}">Romans et littérature</a>
+				<a class="btn btn-dark cat-b" href="{{ path('home') }}">Mangas</a>
+				<a class="btn btn-dark cat-b" href="{{ path('home') }}">Cuisines du monde</a>
+			</div>
+		</div>
 	</div>
-
 
 {% endblock %}
 
+	<div class="container-fluid mt-5">
+        <h2 class="sous-titre fs-20 fs-lg-36 text-center" style="font-family: francoisone_regular; color:#1d3039;">Promotions</h2>
 
+		<div class="row g-1 mt-5 mb-5 mx-auto">
+			<div class="col ">
+				<div class="card mb-3" style="max-width: 540px; background:#938016; color:white;">
+					<div class="row no-gutters">
+						<div class="col-md-4">
+							<img src="{{ asset('images/php.jpg') }}" class="card-img img-fluid" alt="...">
+						</div>
+						<div class="col-md-8">
+							<div class="card-body">
+								<h5 class="card-title">Card title</h5>
+								<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+								<p class="card-text">
+									<small class="text-muted">Last updated 3 mins ago</small>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="card mb-3" style="max-width: 540px; background:#938016; color:white;">
+				<div class="col ">
+					<div class="row no-gutters">
+						<div class="col-md-4">
+							<img src="{{ asset('images/php.jpg') }}" class="card-img img-fluid" alt="...">
+						</div>
+						<div class="col-md-8">
+							<div class="card-body">
+								<h5 class="card-title">Card title</h5>
+								<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+								<p class="card-text">
+									<small class="text-muted">Last updated 3 mins ago</small>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
+	<div class="container-fluid">
+		<div class="row" style="background-color: #bccdbd">
+			<div class="col">
+				<img src="{{ asset('images/recycle.png') }}" alt="Bannière">
+			</div>
+			<div class="cont-logo">
+				<div class="row ">
+					<div class="col text-center mb-5">
+						<a href="https://play.google.com/store/apps/details?id=com.recyclivre.app" target="_blank">
+							<img src="{{ asset('images/icon-google-play.png')}}" class="recycle "></a>
+					</div>
+					<div class="col text-center mb-5">
+						<a href="https://apps.apple.com/fr/app/recyclivre-rach%C3%A8te/id1519193195" target="_blank">
+							<img src="{{ asset('images/icon-app-store.png')}}" class="recycle "></a>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
 
+{% endblock %}

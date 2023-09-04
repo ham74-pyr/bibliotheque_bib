@@ -21,18 +21,20 @@ class CatalogueController extends AbstractController
         ]);
     }
 
-    
+
     #[Route('/catalogue/catalogue1', name: 'app_catalogue1')]
     public function index1(ProduitRepository $produitRepository): Response
     {
-        
-        $produits = $produitRepository->findOneBy();
+        $categorieNom = 'categorie.nom'; // Replace with the actual category name
+        $produits = $produitRepository->findBy(['categorie' => $categorieNom]);
 
         return $this->render('catalogue/index.html.twig', [
             
             'produits' => $produits
         ]);
     }
+
+    
 
 
 

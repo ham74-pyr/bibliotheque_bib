@@ -57,6 +57,8 @@ class ProduitController extends AbstractController
     }
 
 
+
+
     /**
      * c'est le C du CRUD (INSERT INTO)
      * @Route("/ajouter", name="produit_ajouter")
@@ -193,4 +195,10 @@ class ProduitController extends AbstractController
         $produitRepository->remove($produit, true);
         return $this->redirectToRoute('produit_afficher');
     }
+
+
+    
+
+
+
 } // FERMETURE DE LA CLASS
