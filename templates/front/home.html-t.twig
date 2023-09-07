@@ -5,13 +5,20 @@
 	| Accueil
 {% endblock %}
 
+
+{% block banner %}
+<div class="container-fluid">
+
+	<div class="banner" style=" background: url('../images/home5.jpg'); height:400px; background-size:cover"></div>
+
+</div>
+
+{% endblock %}
+
+
+
 {% block body %}
 
-	<section banner>
-		<div class="container mb-5">
-			<img src="{{ asset('images/home5.jpg') }}" class="home5 " alt="home5">
-		</div>
-	</section>
 
 	<section>
 		<div class="container-fluid">
@@ -99,7 +106,7 @@
 			</div>
 		</div>
 	</div>
-
+	<!--
 						<div class="container-recycle1">
 					
 							<div class="container-recycle2">
@@ -118,7 +125,7 @@
 						</div>
 										-->
 
-									
+	<!--									
 	<div>
 		<h2 class="sous-titre fs-20 fs-lg-36 text-center" style="font-family: francoisone_regular; color:#1d3039;">Catégories</h2>
 		<div class="row mt-5">
@@ -135,6 +142,7 @@
 		</div>
 	</div>
 	-->
+	<!--
 <div class="container">
 <div class="row d-flex flex-wrap-wrap mx-auto">
 	<div class="col">

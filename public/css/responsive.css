@@ -1,0 +1,29 @@
+
+ônixin responsive( $breakpoint) C
+Oif Sbreakpoint xs (
+
+ùnedio onty screen and (max-vidth: 5t6px) C
+Ocon rent ;
+) if Sbreakpoint
+sn {
+Smalt devires (lands cape phones, S76px and
+only screen and (min—vidth; 57f»px) C
+ôcon tent
+)òetSë if Sbreakpoint md {
+J' Smoll devilees ( Zaraseope phones, 576{-'8
+ùnedio onzy screen and (min—vidth: 768px) C
+Ocon tent ;
+
+
+) ôelse if Sbreakpoint
+L arge devices (desktops, 992px and up )
+Omedia only screen and (min-uidth: 992px) {
+acontent ;
+aetse if Sbreakpoint
+X-Large devices (large desktops, 12@ûpx and up)
+Onedia only screen and (min—width: 129epx) {
+acontent ;
+aelse if Sbreakpoint xx lg {
+X-Large devices (targe desktops, 12û@px up '
+amedia only screen and (min-uidth: 12eopx) {
+acon tent;
