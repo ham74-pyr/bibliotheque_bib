@@ -32,7 +32,6 @@ class CartController extends AbstractController
             ];
             $total += $produit->getPrix() * $quantite;
         }
-
         return $this->render('cart/index.html.twig', compact("dataPanier","total"));
     }
 
@@ -47,8 +46,6 @@ class CartController extends AbstractController
         if (!is_array($panier)) {
             $panier = []; // Initialize an empty array if $panier is not already an array
         }
-
-
         if (!empty($panier[$id])) {
             $panier[$id]++;
         } else {
