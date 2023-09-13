@@ -17,7 +17,7 @@ class ProfilController extends AbstractController
     public function index(): Response
     {
         $user = $this->getUser(); // utilisateur connecté
-
+        
         //dd($user);
         return $this->render('profil/index.html.twig', []);
     }
