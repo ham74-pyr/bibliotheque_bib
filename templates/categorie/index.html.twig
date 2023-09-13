@@ -5,10 +5,9 @@
 {% block h1 %}Gestion des catégories{% endblock %}
 
 {% block body %}
-<a class="btn btn-dark mx-3" href="{{ path('app_categorie_new') }}">Ajouter</a>
-
-
-    <table class="table table-striped text-center mt-3 mx-3">
+<div class="container mb-3">
+<a class="btn btn-dark mx-3 mt-5" href="{{ path('app_categorie_new') }}">Ajouter</a>
+    <table class="table table-striped text-center mt-3 mx-3 shadow">
         <thead class="bg-dark text-white">
             <tr>
                 <th>Id</th>
@@ -22,8 +21,8 @@
                 <td>{{ categorie.id }}</td>
                 <td>{{ categorie.nom }}</td>
                 <td>
-                    <a href="{{ path('app_categorie_show', {'id': categorie.id}) }}">show</a>
-                    <a href="{{ path('app_categorie_edit', {'id': categorie.id}) }}">edit</a>
+                    <a href="{{ path('app_categorie_show', {'id': categorie.id}) }}" class="btn btn-primary p-1 mb-1">afficher</a>
+                    <a href="{{ path('app_categorie_edit', {'id': categorie.id}) }}" class="btn btn-secondary p-1 mb-1">editer</a>
                     {{ include('categorie/_delete_form.html.twig') }}
                 </td>
             </tr>
@@ -33,7 +32,7 @@
             </tr>
         {% endfor %}
         </tbody>
-    </table>
+    </table> 
+</div>
 
-    
 {% endblock %}

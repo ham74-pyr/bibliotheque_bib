@@ -6,93 +6,17 @@
 {% endblock %}
 
 
-{% block title %}Hello CatalogueController!
-{% endblock %}
-
-{% block h1 %}
-	<select class="form-select" aria-label="Default select example">
-		<option selected>Tous catégories</option>
-		<option>
-<a href="{{ path('app_categorie_index') }}">Langages</a>
-
-
-		</option>
-		<option value="2">scolaires</option>
-		<option value="3">Nature et animaux</option>
-		<option value="4">Romans et littérature</option>
-		<option value="5">Mangas</option>
-	</select>
-
-{% endblock %}
+{% block title %}Catalogue{% endblock %}
 
 
 {% block body %}
-<!--=========================================
-	<div class="galerie row">
-		{% for produit in produits %}
-
-			<div class="col-md-4 col-sm-6">
-				<div class="row row-cols-1 row-cols-md-x g-1 mt-3 mb-6">
-					<div class="col">
-						<div class="card ">
-							<img src={{ asset('images/upload/' ~ produit.image ) }} alt="" style="width:8rem" class="card-img-top p-3">
-							<div class="card-body">
-								<h5 class="card-title">>{{ produit.titre }}</h5>
-								<span class="font-weight-bold">{{ produit.prix }}
-									<p class="card-text">{{ produit.description|slice(0,27) }}...</p>
-									<a href="{{ path("cart_add", {'id': produit.id})}} " class="btn btn-primary">Ajouter panier</a>
-									<a href="{{ path('catalogue_show', {'id': produit.id}) }}" class="btn btn-primary">Voir</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-		{% else %}
-			<p>Aucun produit trouvé dans le Catalogue</p>
-		{% endfor %}
-	</div>
-
-
-	
-
-<div class="container-fluid galerie row mt-3">
-	{% block h2 %} Langages {% endblock %}
-	{% set filteredProduits = produits|filter(item => item.categorie.nom == 'Langages de programation') %}
-	{% if filteredProduits|length > 0 %}
-		{% for produit in filteredProduits %}
-			<div class="col-md-2 col-sm-6">
-<div class="row row-cols-1 row-cols-md-x g-1 mt-3 mb-6">
-
-					<div class="col">
-						<div class="card">
-							<img src="{{ asset('images/upload/' ~ produit.image) }}" alt="" style="width:8rem" class="card-img-top p-3">
-							<div class="card-body">
-								<h5 class="card-title">{{ produit.titre }}</h5>
-								<span class="font-weight-bold">{{ produit.prix }}</span>
-								<p class="card-text">{{ produit.description }}</p>
-								<a href="{{ path('cart_add', {'id': produit.id})}}" class="btn btn-primary">Voir</a>
-								<p class="card-category">Catégorie:
-									{{ produit.categorie.nom }}</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		{% endfor %}
-	{% else %}
-		<p>Aucun produit trouvé dans le Catalogue</p>
-	{% endif %}
-</div>
-
-=========================================-->
 
 
 	<div class="label">
 		<h1>Langages de programation</h1>
 	</div>
 	
-	<div class="container py-5">
+	<div class="container p-5">
 		<div class="row justify-content-space-around">
 
 			{% set filteredProduits = produits|filter(item => item.categorie.nom == 'Langages de programation') %}

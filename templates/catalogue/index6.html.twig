@@ -12,12 +12,17 @@
 {% block body %}
 
 	<div class="label">
-		<h1>Livres scolaires</h1>
+    <h1>Cuisines du monde</h1>
+
+
 	</div>
 
 	<div class="container p-5">
 		<div class="row justify-content-space-around">
-			{% set filteredProduits = produits|filter(item => item.categorie.nom == 'Livres scolaires') %}
+{% set filteredProduits = produits|filter(item => item.categorie.nom == 'Cuisines du monde') %}
+
+
+
 			{% if filteredProduits|length > 0 %}
 				{% for produit in filteredProduits %}
 
@@ -56,4 +61,5 @@
 
 	</div>
 {% endblock %}
+
 

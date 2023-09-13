@@ -1,6 +1,7 @@
-<nav class="navbar navbar-expand-lg fixed-top" style=" background:#1d3039; color:white;">
+<nav class="global-container navbar navbar-expand-lg fixed-top" style=" background:#1d3039; color:white;">
 
-	<div class="container mx-3">
+
+	<div class="container">
 		<div class="n-logos mb-0 mx-3">
 			<a href="{{ path('home') }}"><img src="{{ asset('images/logo-white-150.png')}}" alt="logo1s"></a>
 			<a href="{{ path('home') }}"><img src="{{ asset('images/logo-color-150.png')}}" alt="logo2s" class="n-logo2"></a>
@@ -35,10 +36,10 @@
 										<a class="dropdown-item" href="{{ path('app_categorie_index') }}">Gestion des catégories</a>
 									</li>
 									<li>
-										<a class="dropdown-item" href="{{ path('app_marque_index') }}">Gestion des etat</a>
+										<a class="dropdown-item" href="{{ path('app_marque_index') }}">Gestion de l'état</a>
 									</li>
 									<li>
-										<a class="dropdown-item" href="{{ path('app_matiere_index') }}">Gestion des format</a>
+										<a class="dropdown-item" href="{{ path('app_matiere_index') }}">Gestion du format</a>
 									</li>
 								</ul>
 							</div>
@@ -54,6 +55,9 @@
 							<a class="nav-link text-white" href="{{ path('app_login') }}">Connexion</a>
 						</li>
 					{% endif %}
+					<li class="nav-item px-2">
+						<a class="nav-link text-white" href="{{ path('app_contact')}} ">Contact</a>
+					</li>
 				</ul>
 			</div>
 		</div>

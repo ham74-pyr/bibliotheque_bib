@@ -1,26 +1,15 @@
 {% extends "base.html.twig" %}
 
-{% block title %}{{ parent() }} | Ajouter un produit{% endblock %}
+{% block title %}{{ parent() }} | Ajouter un livre{% endblock %}
 
-{# la fonction twig parent() permet de conserver le contenu du block du fichier base.html.twig #}
-
-{% block h1 %}Ajouter un produit{% endblock %}
+{% block h1 %}Ajouter un livre{% endblock %}
 
 {% block body %}
 
-    <a class="btn btn-dark" href="{{ path('produit_afficher') }}">Retour</a>
+    <a class="btn btn-dark mb-3" href="{{ path('produit_afficher') }}">Retour</a>
 
-    {#
-        2 façons d'afficher un formulaire
-            - la fonction form() qui permet d'appeller l'intégralité du formulaire
-             de la balise ouvrante <form> à la balise fermante </form>
-            
-            - les fonctions form_start() form_end() form_row() .....
-    #}
-    {# {{ form(formProduit) }} #}
-
-
-    {{ form_start(formProduit) }} {# ouverture de la balise form #}
+   <div class="shadow p-5">
+    {{ form_start(formProduit) }}
     
         <div class="row">
             <div class="col-md-6">
@@ -32,26 +21,13 @@
             </div>
         </div>
 
-        {# 
-            form_row() permet d'appeler un élément du formulaire.
-            argument : element du formulaire
-            syntaxe : parent.enfant
-            
-            form_row() = form_label() + form_widget() + form_errors() + form_help()
-        #}
         {{ form_help(formProduit.description)}}
         {{ form_widget(formProduit.description)}}
         {{ form_label(formProduit.description)}}
-        {{ form_errors(formProduit.description)}}
-        
+        {{ form_errors(formProduit.description)}}    
         {{ form_rest(formProduit) }}
-        <input type="submit" value="Ajouter" class="btn btn-dark col-12 mt-3">
-    {{ form_end(formProduit) }}{# fermeture de la balise form #}
-
-
-    
-
-
-
+        <input type="submit" value="Ajouter" class="btn btn-success col-12 mx-auto">
+    {{ form_end(formProduit) }}
+</div>
 
 {% endblock %}

@@ -4,7 +4,7 @@
 {% endblock %}
 
 {% block body %}
-	<div class="row d-flex flex-wrap-wrap mx-auto shadow">
+	<div class="row d-flex flex-wrap-wrap mx-auto shadow p-2 pb-4">
 		<div class="col">
 			<form method="post" class="mx-5">
 				{% if error %}
@@ -18,22 +18,19 @@
 						<a href="{{ path('app_logout') }}">Logout</a>
 					</div>
 				{% endif %}
-
-				<h1 class="mt-5 py-3 font-weight-normal">Connectez-vous</h1>
-				<label for="inputEmail" style="color:white;">Email</label>
+				<h1 class="mt-3 py-3 font-weight-normal">Connectez-vous</h1>
+				<label for="inputEmail" style="color:green; margin-top:15px;">Email</label>
 				<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-				<label for="inputPassword" style="color:white;">Password</label>
-
+				
+				<label for="inputPassword" style="color:green;margin-top:15px;">Password</label>
 				<input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
 
 				<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-<button type="submit" class="btn col-12 mt-5" style="background:#1d3039; color:white;">Se connecter</button>
-
-
+				<button type="submit" class="btn col-12 mt-5" style="background:#1d3039; color:white;">Se connecter</button>
 			</form>
 		</div>
 		<div class="col">
-			<img src="{{ asset('images/logo2_removebg.png')}}" class="f-logo5 w-200 mt-3 py-3" ; alt="f-logo5">
+			<img src="{{ asset('images/logo_blue-r.png')}}" class="mt-3 py-3" alt="f-logo5" style="width:300px;">
 		</div>
 
 	{% endblock %}

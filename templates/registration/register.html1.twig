@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription
+{% endblock %}
+
+{% block body %}
+
+
+	<section reg-banner>
+		<div class="row reg-banner">
+			<div class="container m-5 p-2">			
+				<div class="col-10 reg-form mx-auto position-relative ">
+				<h1 class="h1 position-absolute font-weight-normal mx-auto mb-5">Inscrivez-vous</h1>
+					{{ form_start(registrationForm, {'attr': {'style': 'color: white; width:300px'}}) }}
+					{{ form_row(registrationForm.email) }}
+					{{ form_row(registrationForm.plainPassword, {label: 'Password'}) }}
+					{{ form_row(registrationForm.nom) }}
+					{{ form_row(registrationForm.prenom) }}
+					{{ form_row(registrationForm.agreeTerms) }}
+					<button type="submit" class="btn col-12 mt-3 mb-5" style="background:#1d3039; color:white;">S'inscrire</button>
+					{{ form_end(registrationForm) }}
+				</div>
+			</div>
+		</div>
+	</section>
+
+{% endblock %}

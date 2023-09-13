@@ -1,17 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Gestion des états
-{% endblock %}
+{% block title %}Gestion des états{% endblock %}
 
-
-{% block h1 %}Gestion des états
-{% endblock %}
 
 
 {% block body %}
+{% block h1 %}Gestion des états
+{% endblock %}
 
-    <a class="btn btn-dark mx-3" href="{{ path('app_marque_new') }}">Ajouter</a>
-
+    <a class="btn btn-success mx-3" href="{{ path('app_marque_new') }}">Ajouter</a>
     <table class="table text-center mt-3 mx-3 ">
         <thead>
             <tr>
@@ -26,8 +23,8 @@
                 <td>{{ marque.id }}</td>
                 <td>{{ marque.nom }}</td>
                 <td>
-                    <a href="{{ path('app_marque_show', {'id': marque.id}) }}">show</a>
-                    <a href="{{ path('app_marque_edit', {'id': marque.id}) }}">edit</a>
+                    <a href="{{ path('app_marque_show', {'id': marque.id}) }}" class="btn btn-primary p-1 mb-1">afficher</a>
+                    <a href="{{ path('app_marque_edit', {'id': marque.id}) }}" class="btn btn-secondary p-1 mb-1">editer</a>
                 </td>
             </tr>
         {% else %}
