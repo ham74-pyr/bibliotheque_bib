@@ -1,35 +1,33 @@
-
 /*--------------------------------------*/
-*{ 
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Francois One', sans-serif;
-
+  font-family: "Francois One", sans-serif;
 }
-.global-container{
-    max-width: 1920px;
-    margin: 0 auto;
-      background-color: #f1fbfc;
+.global-container {
+  max-width: 1920px;
+  margin: 0 auto;
+  background-color: #f1fbfc;
 }
 
 nav {
   background-color: #1d3039;
 }
-#navbarSupportedContent a{
+#navbarSupportedContent a {
   border-bottom: 2px solid transparent;
 }
-#navbarSupportedContent a:hover{
+#navbarSupportedContent a:hover {
   border-bottom: 2px solid #00ffe1;
 }
-.n-logos{
+.n-logos {
   width: 70px;
   position: relative;
 }
-.n-logos img{
+.n-logos img {
   width: 100%;
 }
-.n-logo2{
+.n-logo2 {
   position: absolute;
   top: 0;
   left: 0;
@@ -39,8 +37,9 @@ nav {
   opacity: 1;
 }
 /********************************/
-.banner-section{
-    background: url('../images/home5.jpg') no-repeat bottom / cover ;height: 400px;  
+.banner-section {
+  background: url("../images/home5.jpg") no-repeat bottom / cover;
+  height: 400px;
 }
 
 /********************************/
@@ -53,42 +52,35 @@ nav {
   width: 60%;
 }
 @media only screen and (max-width: 400px) {
-  .carousel-item .col{
+  .carousel-item .col {
     margin-left: 15px;
-    
   }
-  .carousel-item .row{
+  .carousel-item .row {
     gap: 0px;
   }
-  .parallax-section{
-    background: url('../images/banniere1.jpg');
-    background-repeat:  no-repeat;
-    background-position: top;
-    background-size: 100px; 
+  .parallax-section {
+    background: url("../images/banniere1.jpg") centre centre/couverture sans
+      répétition;
+
+    background-size: 100px;
     background-attachment: fixed;
     height: 450px;
-   
+  }
 }
-  
-}
-
-
 /*--------------------------------------*/
-.parallax-section{
-    background: url('../images/banniere1.jpg');
-    background-repeat:  no-repeat;
-    background-position: center;
-    background-size: cover; 
-    background-attachment: fixed;
-    height: 250px;
-   
+.parallax-section {
+  background: url("../images/banniere1.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 250px;
 }
 /*--------------------------------------*/
 
 footer {
   background: #1d3039;
   padding-top: 50px;
-
 }
 footer .container {
   width: 1140px;
@@ -112,7 +104,6 @@ h3 {
   margin: auto;
   padding: 7px;
   margin-left: 150px;
-
 }
 .footer-content ul {
   text-align: center;
@@ -166,17 +157,17 @@ a:hover {
 .social-icons i:hover {
   color: #00ffe1;
 }
-.f-logos{
+.f-logos {
   width: 250px;
   margin-top: -40px;
   margin-bottom: 20px;
   margin-right: 35px;
   position: relative;
 }
-.f-logos img{
+.f-logos img {
   width: 250px;
 }
-.f-logo2s{
+.f-logo2s {
   position: absolute;
   opacity: 0;
   top: 0;
@@ -191,32 +182,16 @@ a:hover {
   position: relative;
 }
 
-.recycle-logos{
+.recycle-logos {
   position: absolute;
-
-
 }
 
-.recycle-logos img{
-margin-left: 600px;
-
-
+.recycle-logos img {
+  margin-left: 600px;
 }
 @media only screen and (max-width: 768px) {
-  .recycle-logos img{
+  .recycle-logos img {
     width: 150px;
     margin-left: 950px;
-    
-    
   }
-  .recycle-logos
 }
-
-@media only screen and (max-width: 400px) {
-  .recycle-logos{
-    
-    
-  } 
-} 
-
-/*--------------------------------------*/
